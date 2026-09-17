@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Rangkuman PAI XII — Al-Qur'an, Akidah, Akhlak & Fikih</title>
+<style>
+  :root{
+    --ink:#1F2124;
+    --paper:#FAF9F5;
+    --sub:#5B6472;
+
+    --c1:#15803D;       /* Al-Quran - hijau */
+    --c1-bg:#E7F5EC;
+    --c1-bg2:#CDEBD8;
+
+    --c2:#B45309;       /* Akidah - emas/amber */
+    --c2-bg:#FDF0E1;
+    --c2-bg2:#FADFC0;
+
+    --c3:#0E7490;       /* Akhlak - teal */
+    --c3-bg:#E4F3F6;
+    --c3-bg2:#C7E7EC;
+
+    --c4:#9D174D;       /* Fikih - maroon */
+    --c4-bg:#FCE9F1;
+    --c4-bg2:#F8D1E3;
+
+    --gold:#C9A227;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+    line-height:1.65;
+    padding:0 0 80px 0;
+  }
+  .sans{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;}
+  .arab{font-family:"Traditional Arabic","Scheherazade New","Amiri",serif;font-size:1.5rem;direction:rtl;}
+
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px;}
+
+  /* ===== HERO ===== */
+  .hero{
+    background:
+      radial-gradient(circle at 80% 15%, rgba(255,255,255,0.12) 0, transparent 45%),
+      linear-gradient(120deg,var(--c1) 0%, var(--c2) 33%, var(--c3) 66%, var(--c4) 100%);
+    color:#fff;
+    padding:54px 24px 42px;
+    text-align:center;
+    border-bottom:6px solid var(--ink);
+  }
+  .hero .eyebrow{
+    font-family:"Segoe UI",sans-serif;
+    font-size:13px;
+    letter-spacing:0.12em;
+    opacity:0.9;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:2.2rem;
+    margin:0 0 10px;
+    font-weight:700;
+  }
+  .hero p{
+    font-family:"Segoe UI",sans-serif;
+    font-size:1.02rem;
+    max-width:600px;
+    margin:0 auto;
+    opacity:0.96;
+  }
+  .hero .badges{
+    margin-top:22px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+    font-family:"Segoe UI",sans-serif;
+    font-size:0.82rem;
+  }
+  .hero .badges span{
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.4);
+    padding:6px 14px;
+    border-radius:20px;
+  }
+
+  /* ===== TOC ===== */
+  .toc{
+    display:flex;
+    gap:12px;
+    margin:-26px auto 34px;
+    max-width:780px;
+    padding:0 24px;
+    flex-wrap:wrap;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+  }
+  .toc a{
+    text-decoration:none;
+    font-family:"Segoe UI",sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    padding:9px 16px;
+    border-radius:10px;
+    background:#fff;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+    color:var(--ink);
+    border-bottom:4px solid var(--c1);
+  }
+  .toc a.t2{border-bottom-color:var(--c2);}
+  .toc a.t3{border-bottom-color:var(--c3);}
+  .toc a.t4{border-bottom-color:var(--c4);}
+
+  /* ===== CHAPTER HEADER ===== */
+  .chapter{margin:56px 0 28px;}
+  .chapter-head{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:6px;
+  }
+  .chapter-icon{
+    font-size:2.1rem;
+    width:56px;height:56px;
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .k1 .chapter-icon{background:var(--c1-bg2);}
+  .k2 .chapter-icon{background:var(--c2-bg2);}
+  .k3 .chapter-icon{background:var(--c3-bg2);}
+  .k4 .chapter-icon{background:var(--c4-bg2);}
+
+  .chapter-head h2{margin:0;font-size:1.5rem;}
+  .k1 h2{color:var(--c1);}
+  .k2 h2{color:var(--c2);}
+  .k3 h2{color:var(--c3);}
+  .k4 h2{color:var(--c4);}
+
+  .chapter-sub{
+    font-family:"Segoe UI",sans-serif;
+    color:var(--sub);
+    font-size:0.95rem;
+    margin:0 0 20px 72px;
+  }
+
+  /* ===== CALLOUT ===== */
+  .key{
+    font-family:"Segoe UI",sans-serif;
+    border-radius:12px;
+    padding:16px 20px;
+    margin:18px 0;
+    font-size:0.95rem;
+    border-left:5px solid;
+  }
+  .k1 .key{background:var(--c1-bg);border-color:var(--c1);}
+  .k2 .key{background:var(--c2-bg);border-color:var(--c2);}
+  .k3 .key{background:var(--c3-bg);border-color:var(--c3);}
+  .k4 .key{background:var(--c4-bg);border-color:var(--c4);}
+  .key b{color:var(--ink);}
+
+  h3{font-size:1.1rem;margin:26px 0 8px;}
+  .k1 h3{color:var(--c1);}
+  .k2 h3{color:var(--c2);}
+  .k3 h3{color:var(--c3);}
+  .k4 h3{color:var(--c4);}
+
+  p, li{font-size:1.02rem;}
+
+  /* ===== AYAT BOX ===== */
+  .ayat-box{
+    background:#fff;
+    border-radius:14px;
+    padding:22px 24px;
+    margin:16px 0;
+    text-align:center;
+    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+    border-top:4px solid var(--c1);
+  }
+  .ayat-box .arab{color:var(--ink);line-height:2.3;}
+  .ayat-box .terjemah{
+    font-family:"Segoe UI",sans-serif;
+    font-style:italic;
+    color:var(--sub);
+    margin-top:14px;
+    font-size:0.95rem;
+    text-align:left;
+  }
+  .ayat-box .sumber{
+    font-family:"Segoe UI",sans-serif;
+    font-size:0.8rem;
+    color:var(--c1);
+    font-weight:700;
+    margin-top:8px;
+  }
+
+  /* ===== TABLE ===== */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 22px;
+    font-family:"Segoe UI",sans-serif;
+    font-size:0.9rem;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  }
+  th, td{
+    padding:10px 14px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+    vertical-align:top;
+  }
+  .k1 th{background:var(--c1);color:#fff;}
+  .k2 th{background:var(--c2);color:#fff;}
+  .k3 th{background:var(--c3);color:#fff;}
+  .k4 th{background:var(--c4);color:#fff;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:#fafafa;}
+
+  /* ===== ISTILAH BOX ===== */
+  .istilah{
+    background:#fff;
+    border:1.5px dashed;
+    border-radius:12px;
+    padding:14px 18px;
+    margin:14px 0;
+    font-family:"Segoe UI",sans-serif;
+    font-size:0.95rem;
+  }
+  .k1 .istilah{border-color:var(--c1);}
+  .k2 .istilah{border-color:var(--c2);}
+  .k3 .istilah{border-color:var(--c3);}
+  .k4 .istilah{border-color:var(--c4);}
+  .istilah b.term{display:inline-block;margin-bottom:4px;}
+  .k1 .istilah b.term{color:var(--c1);}
+  .k2 .istilah b.term{color:var(--c2);}
+  .k3 .istilah b.term{color:var(--c3);}
+  .k4 .istilah b.term{color:var(--c4);}
+
+  /* ===== EXAMPLE BOX ===== */
+  .contoh{
+    font-family:"Segoe UI",sans-serif;
+    background:var(--ink);
+    color:#fff;
+    border-radius:14px;
+    padding:20px 22px;
+    margin:20px 0;
+  }
+  .contoh .tag{
+    display:inline-block;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    padding:3px 10px;
+    border-radius:20px;
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .k1 .contoh .tag{background:var(--c1);}
+  .k2 .contoh .tag{background:var(--c2);}
+  .k3 .contoh .tag{background:var(--c3);}
+  .k4 .contoh .tag{background:var(--c4);}
+  .contoh ul, .contoh ol{margin:10px 0 0;padding-left:20px;}
+  .contoh li{font-size:0.95rem;margin-bottom:4px;}
+
+  /* ===== CHEAT SHEET ===== */
+  .cheatsheet{
+    background:var(--ink);
+    color:#fff;
+    border-radius:18px;
+    padding:32px 28px;
+    margin:60px 0 40px;
+  }
+  .cheatsheet h2{
+    color:var(--gold);
+    margin-top:0;
+    font-size:1.5rem;
+  }
+  .cheatsheet table{background:transparent;box-shadow:none;}
+  .cheatsheet th{background:#333;color:var(--gold);}
+  .cheatsheet td{color:#eee;border-bottom:1px solid #3a3a3a;}
+  .cheatsheet tr:nth-child(even) td{background:rgba(255,255,255,0.03);}
+
+  /* ===== QUIZ ===== */
+  .quiz{
+    background:linear-gradient(135deg,var(--c1),var(--c4));
+    color:#fff;
+    border-radius:20px;
+    padding:34px 30px;
+    font-family:"Segoe UI",sans-serif;
+  }
+  .quiz h2{margin-top:0;font-size:1.5rem;}
+  .quiz ol{padding-left:22px;}
+  .quiz li{margin-bottom:16px;font-size:1rem;}
+
+  footer{
+    text-align:center;
+    font-family:"Segoe UI",sans-serif;
+    color:var(--sub);
+    font-size:0.9rem;
+    margin-top:50px;
+  }
+
+  @media(max-width:600px){
+    .hero h1{font-size:1.6rem;}
+    .chapter-sub{margin-left:0;}
+    .chapter-head{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow sans">PAI · KELAS XII · Nipp</div>
+  <h1>Rangkuman PAI: Al-Qur'an, Akidah, Akhlak & Fikih</h1>
+  <p class="sans">Catatan lengkap dan berwarna — dari QS Al-Maidah:32, Syu'abul Iman, Adab Bermasyarakat, sampai Fikih Pernikahan.</p>
+  <div class="badges">
+    <span>📖 Al-Qur'an</span>
+    <span>🤲 Akidah</span>
+    <span>🤝 Akhlak</span>
+    <span>💍 Fikih</span>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#bab1">📖 Al-Qur'an</a>
+  <a href="#bab2" class="t2">🤲 Akidah</a>
+  <a href="#bab3" class="t3">🤝 Akhlak</a>
+  <a href="#bab4" class="t4">💍 Fikih</a>
+  <a href="#quiz" class="t4">❓ Latihan</a>
+</div>
+
+<div class="wrap">
+
+  <!-- ===================== BAB 1: AL-QURAN ===================== -->
+  <section class="chapter k1" id="bab1">
+    <div class="chapter-head">
+      <div class="chapter-icon">📖</div>
+      <h2>Al-Qur'an — QS Al-Ma'idah: 32</h2>
+    </div>
+    <p class="chapter-sub">Tajwid, terjemah, dan kandungan tentang menghargai kehidupan manusia</p>
+
+    <div class="ayat-box">
+      <p class="arab">مَنْ قَتَلَ نَفْسًۢا بِغَيْرِ نَفْسٍ أَوْ فَسَادٍ فِى ٱلْأَرْضِ فَكَأَنَّمَا قَتَلَ ٱلنَّاسَ جَمِيعًۭا وَمَنْ أَحْيَاهَا فَكَأَنَّمَآ أَحْيَا ٱلنَّاسَ جَمِيعًۭا</p>
+      <p class="terjemah">"...Barangsiapa membunuh seseorang, bukan karena orang itu membunuh orang lain atau bukan karena berbuat kerusakan di bumi, maka seakan-akan dia telah membunuh semua manusia. Barangsiapa memelihara kehidupan seseorang, maka seakan-akan dia telah memelihara kehidupan semua manusia..."</p>
+      <p class="sumber">QS. AL-MA'IDAH (5) : 32</p>
+    </div>
+
+    <h3>🔹 Tajwid (Ilmu Bacaan)</h3>
+    <p>Saat membaca ayat ini, perhatikan penerapan beberapa hukum tajwid berikut agar bacaan sesuai kaidah (makhraj & sifat huruf):</p>
+    <table>
+      <tr><th>Hukum Tajwid</th><th>Penjelasan Singkat</th></tr>
+      <tr><td><b>Mad Thabi'i</b></td><td>Bacaan panjang 2 harakat pada huruf berharakat fathah/kasrah/dhammah bertemu huruf mad (alif, ya, wau sukun)</td></tr>
+      <tr><td><b>Idgham Bighunnah</b></td><td>Nun sukun/tanwin bertemu huruf ي ن م و → dibaca melebur disertai dengung</td></tr>
+      <tr><td><b>Ikhfa</b></td><td>Nun sukun/tanwin bertemu huruf ikhfa (misal: ف, س, ت) → dibaca samar-samar berdengung</td></tr>
+      <tr><td><b>Qalqalah</b></td><td>Huruf ق ط ب ج د yang berharakat sukun → dibaca memantul</td></tr>
+    </table>
+
+    <h3>🔹 Kandungan Ayat</h3>
+    <div class="key">💡 <b>Inti pesan:</b> Islam sangat <b>menghargai nilai kehidupan manusia</b>. Membunuh satu orang tanpa alasan yang dibenarkan syariat (bukan qisas atau karena membuat kerusakan di bumi) sama nilainya dengan membunuh seluruh umat manusia, karena dampaknya merusak tatanan kemanusiaan secara keseluruhan.</div>
+    <ul>
+      <li>Menegaskan pentingnya <b>menghargai & memelihara nyawa manusia</b></li>
+      <li>Perintah untuk <b>menebarkan kedamaian</b> dan menjauhi tindakan kekerasan/kezaliman</li>
+      <li>Larangan keras melakukan pembunuhan tanpa alasan yang sah menurut hukum</li>
+      <li>Barangsiapa menyelamatkan satu nyawa, pahalanya seolah menyelamatkan seluruh manusia</li>
+    </ul>
+
+    <div class="contoh">
+      <span class="tag sans">CONTOH PENERAPAN</span>
+      <p style="margin:0">Bagaimana nilai QS Al-Ma'idah:32 bisa diterapkan siswa di sekolah?</p>
+      <ul>
+        <li>Tidak melakukan perundungan (bullying) fisik/verbal terhadap teman</li>
+        <li>Melerai atau melapor jika melihat tindak kekerasan di lingkungan sekitar</li>
+        <li>Ikut serta dalam aksi sosial yang menyelamatkan/membantu sesama (donor darah, bantuan bencana)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== BAB 2: AKIDAH ===================== -->
+  <section class="chapter k2" id="bab2">
+    <div class="chapter-head">
+      <div class="chapter-icon">🤲</div>
+      <h2>Akidah — Syu'abul Iman</h2>
+    </div>
+    <p class="chapter-sub">Cabang-cabang iman dalam ajaran Islam</p>
+
+    <div class="istilah">
+      <b class="term">Syu'abul Iman</b><br>
+      Berasal dari kata <i>syu'bah</i> (cabang) dan <i>iman</i>. Artinya <b>cabang-cabang keimanan</b> — yaitu berbagai bentuk perwujudan iman seorang muslim, tidak hanya diyakini dalam hati, tetapi juga diucapkan lisan dan diamalkan dengan anggota tubuh.
+    </div>
+
+    <div class="key">💡 Rasulullah ﷺ bersabda: <i>"Iman itu memiliki lebih dari 70 cabang. Yang paling utama adalah ucapan <b>laa ilaaha illallah</b>, dan yang paling rendah adalah menyingkirkan gangguan dari jalan. Dan malu adalah salah satu cabang iman."</b></i> (HR. Muslim)</div>
+
+    <h3>🔹 3 Kategori Cabang Iman</h3>
+    <table>
+      <tr><th>Kategori</th><th>Penjelasan</th><th>Contoh</th></tr>
+      <tr><td><b>I'tiqad bil Qalbi</b></td><td>Keyakinan dalam hati</td><td>Percaya kepada Allah, malaikat, kitab, rasul, hari akhir, qada & qadar</td></tr>
+      <tr><td><b>Qauliyah bil Lisan</b></td><td>Diucapkan dengan lisan</td><td>Mengucap dua kalimat syahadat, berdzikir, <b>menjawab salam</b></td></tr>
+      <tr><td><b>Amaliyah bil Arkan</b></td><td>Diamalkan dengan anggota badan</td><td>Salat, <b>menolong dalam kebaikan</b>, <b>amar ma'ruf nahi munkar</b>, taat pemimpin</td></tr>
+    </table>
+
+    <h3>🔹 Contoh Cabang Iman yang Perlu Diketahui</h3>
+    <table>
+      <tr><th>Cabang Iman</th><th>Penjelasan</th></tr>
+      <tr><td><b>Taat kepada Pemerintah (Ulil Amri)</b></td><td>Mematuhi pemimpin/aturan negara selama tidak bertentangan dengan syariat Islam</td></tr>
+      <tr><td><b>Tolong-Menolong dalam Kebaikan (Ta'awun)</b></td><td>Saling membantu sesama dalam hal kebaikan & takwa, bukan dalam dosa</td></tr>
+      <tr><td><b>Amar Ma'ruf Nahi Munkar</b></td><td>Mengajak kepada kebaikan dan mencegah kemungkaran/keburukan</td></tr>
+      <tr><td><b>Menjawab Salam</b></td><td>Membalas ucapan salam dari sesama muslim sebagai bentuk adab & silaturahmi</td></tr>
+    </table>
+
+    <div class="contoh">
+      <span class="tag sans">STUDI KASUS SINGKAT</span>
+      <p style="margin:0">Seorang siswa melihat temannya menyontek saat ujian. Cabang iman apa yang seharusnya ia terapkan?</p>
+      <p style="margin:6px 0 0"><b>Jawaban:</b> <b>Amar ma'ruf nahi munkar</b> — mengingatkan temannya dengan cara yang baik bahwa menyontek adalah perbuatan tidak jujur yang bertentangan dengan nilai iman.</p>
+    </div>
+  </section>
+
+  <!-- ===================== BAB 3: AKHLAK ===================== -->
+  <section class="chapter k3" id="bab3">
+    <div class="chapter-head">
+      <div class="chapter-icon">🤝</div>
+      <h2>Akhlak — Adab Bermasyarakat</h2>
+    </div>
+    <p class="chapter-sub">Menjalin silaturahmi dan menjaga hak-hak bertetangga</p>
+
+    <h3>🔹 Silaturahmi</h3>
+    <div class="istilah">
+      <b class="term">Silaturahmi</b><br>
+      Berasal dari kata <i>shilah</i> (hubungan/menyambung) dan <i>rahim</i> (kasih sayang/kekerabatan). Artinya <b>menyambung dan menjaga hubungan baik</b> dengan sesama, terutama kerabat dan tetangga.
+    </div>
+    <p><b>Keutamaan silaturahmi (berdasarkan hadits):</b></p>
+    <ul>
+      <li>Melapangkan rezeki</li>
+      <li>Memanjangkan usia (keberkahan umur)</li>
+      <li>Mempererat ukhuwah (persaudaraan) sesama muslim</li>
+      <li>Menjauhkan diri dari sifat individualis & permusuhan</li>
+    </ul>
+
+    <h3>🔹 Hak-Hak Bertetangga</h3>
+    <div class="key">💡 Rasulullah ﷺ bersabda: <i>"Barangsiapa beriman kepada Allah dan hari akhir, hendaklah ia memuliakan tetangganya."</i> (HR. Bukhari-Muslim)</div>
+    <table>
+      <tr><th>Hak Tetangga</th><th>Contoh Penerapan</th></tr>
+      <tr><td>Tidak menyakiti</td><td>Tidak membuat kegaduhan/kebisingan yang mengganggu tetangga</td></tr>
+      <tr><td>Saling membantu</td><td>Membantu tetangga yang kesulitan atau terkena musibah</td></tr>
+      <tr><td>Berbagi kebaikan</td><td>Berbagi makanan/rezeki kepada tetangga terdekat</td></tr>
+      <tr><td>Menjaga privasi</td><td>Tidak mengintip atau mencampuri urusan pribadi tetangga</td></tr>
+      <tr><td>Menjenguk saat sakit</td><td>Mengunjungi & mendoakan tetangga yang sedang sakit</td></tr>
+    </table>
+
+    <div class="contoh">
+      <span class="tag sans">CONTOH PENERAPAN</span>
+      <p style="margin:0">Tetangga sebelah rumah baru saja pindah dan belum saling kenal. Apa adab yang seharusnya dilakukan?</p>
+      <p style="margin:6px 0 0"><b>Jawaban:</b> Menyapa & memperkenalkan diri, membantu proses pindahan jika memungkinkan, serta menjalin silaturahmi sejak awal agar hubungan bertetangga menjadi harmonis.</p>
+    </div>
+  </section>
+
+  <!-- ===================== BAB 4: FIKIH ===================== -->
+  <section class="chapter k4" id="bab4">
+    <div class="chapter-head">
+      <div class="chapter-icon">💍</div>
+      <h2>Fikih — Pernikahan (Munakahat)</h2>
+    </div>
+    <p class="chapter-sub">Ketentuan, rukun, syarat, dan hikmah pernikahan dalam Islam</p>
+
+    <div class="istilah">
+      <b class="term">Pernikahan (Munakahat)</b><br>
+      Akad yang menghalalkan hubungan antara laki-laki dan perempuan sebagai suami istri, dengan tujuan membangun keluarga yang <b>sakinah (tenteram), mawaddah (cinta), dan rahmah (kasih sayang)</b>, sesuai QS. Ar-Rum: 21.
+    </div>
+
+    <h3>🔹 Rukun Nikah</h3>
+    <table>
+      <tr><th>No</th><th>Rukun</th><th>Keterangan</th></tr>
+      <tr><td>1</td><td><b>Calon Suami</b></td><td>Beragama Islam, bukan mahram calon istri, tidak dipaksa</td></tr>
+      <tr><td>2</td><td><b>Calon Istri</b></td><td>Beragama Islam, tidak dalam status menikah/iddah, bukan mahram</td></tr>
+      <tr><td>3</td><td><b>Wali Nikah</b></td><td>Wali dari pihak perempuan (ayah kandung atau wali yang sah menurut syariat)</td></tr>
+      <tr><td>4</td><td><b>Dua Orang Saksi</b></td><td>Laki-laki muslim, adil, dan baligh</td></tr>
+      <tr><td>5</td><td><b>Ijab Qabul</b></td><td>Pernyataan serah terima dari wali kepada mempelai pria dalam satu majelis</td></tr>
+    </table>
+
+    <h3>🔹 Syarat Pernikahan</h3>
+    <ul>
+      <li>Kedua mempelai jelas identitasnya & tidak termasuk mahram</li>
+      <li>Ada wali yang sah bagi mempelai perempuan</li>
+      <li>Dihadiri minimal 2 orang saksi yang memenuhi syarat</li>
+      <li>Ijab qabul diucapkan dengan jelas & tidak diselingi jeda yang lama</li>
+    </ul>
+
+    <h3>🔹 Hikmah Pernikahan</h3>
+    <table>
+      <tr><th>Hikmah</th><th>Penjelasan</th></tr>
+      <tr><td><b>Menjaga Kehormatan</b></td><td>Menghindarkan diri dari perbuatan zina & pergaulan bebas</td></tr>
+      <tr><td><b>Regenerasi (Keturunan)</b></td><td>Melahirkan generasi penerus yang sah secara syariat</td></tr>
+      <tr><td><b>Ketenangan Jiwa</b></td><td>Menghadirkan ketenteraman batin (sakinah) bagi pasangan</td></tr>
+      <tr><td><b>Membangun Cinta & Kasih Sayang</b></td><td>Tumbuhnya mawaddah (cinta) dan rahmah (kasih sayang) dalam keluarga</td></tr>
+      <tr><td><b>Memperkuat Silaturahmi</b></td><td>Terjalinnya hubungan kekeluargaan baru antara dua keluarga besar</td></tr>
+    </table>
+
+    <div class="contoh">
+      <span class="tag sans">STUDI KASUS SINGKAT</span>
+      <p style="margin:0">Sebuah pernikahan dilangsungkan tanpa kehadiran wali dari pihak perempuan dan tanpa saksi. Bagaimana status pernikahan tersebut menurut fikih?</p>
+      <p style="margin:6px 0 0"><b>Jawaban:</b> Pernikahan tersebut <b>tidak sah</b>, karena wali nikah dan dua orang saksi termasuk <b>rukun nikah</b> yang wajib dipenuhi agar akad nikah dianggap sah secara syariat Islam.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CHEAT SHEET ===================== -->
+  <div class="cheatsheet">
+    <h2 class="sans">🧠 Cheat Sheet — Istilah Kunci PAI</h2>
+    <table>
+      <tr><th class="sans">Istilah</th><th class="sans">Arti Singkat</th></tr>
+      <tr><td>Tajwid</td><td>Ilmu tata cara membaca Al-Qur'an dengan benar</td></tr>
+      <tr><td>Syu'abul Iman</td><td>Cabang-cabang keimanan (hati, lisan, perbuatan)</td></tr>
+      <tr><td>Amar Ma'ruf Nahi Munkar</td><td>Mengajak kebaikan & mencegah kemungkaran</td></tr>
+      <tr><td>Silaturahmi</td><td>Menyambung & menjaga hubungan baik dengan sesama</td></tr>
+      <tr><td>Munakahat</td><td>Ilmu fikih yang membahas tentang pernikahan</td></tr>
+      <tr><td>Rukun Nikah</td><td>Calon suami, calon istri, wali, 2 saksi, ijab qabul</td></tr>
+      <tr><td>Sakinah, Mawaddah, Rahmah</td><td>Tenteram, cinta, dan kasih sayang — tujuan pernikahan dalam Islam</td></tr>
+    </table>
+  </div>
+
+  <!-- ===================== QUIZ ===================== -->
+  <div class="quiz" id="quiz">
+    <h2>❓ Latihan Soal — Uji Pemahamanmu!</h2>
+    <ol>
+      <li>Jelaskan kandungan utama <b>QS Al-Ma'idah:32</b> dan berikan satu contoh penerapannya dalam kehidupan sehari-hari sebagai pelajar!</li>
+      <li>Sebutkan 3 <b>cabang iman (syu'abul iman)</b> beserta kategorinya (hati/lisan/perbuatan) menurut penjelasan yang sudah dipelajari!</li>
+      <li>Sebutkan <b>rukun nikah</b> secara lengkap, dan jelaskan mengapa kehadiran wali serta saksi sangat penting dalam akad pernikahan!</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>🎓 Selamat belajar PAI & semoga makin dekat dengan Al-Qur'an dan Sunnah! ☪️✨</footer>
+
+</body>
+</html>
